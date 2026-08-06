@@ -1,0 +1,64 @@
+menu "Dimmer"
+    menu "GPIO"
+        config GPIO_NUM_ZERO_CROSS_DETECT
+            int "Zero cross detect pin number"
+            default 19
+
+        config GPIO_NUM_GATE_CONTROL
+            int "Gate control pin number"
+            default 18
+
+        config GPIO_NUM_KNOB_A
+            int "Knob A pin"
+            default 7
+
+        config GPIO_NUM_KNOB_B
+            int "Knob B pin"
+            default 1
+
+        config GPIO_NUM_KNOB_BUTTON
+            int "Knob button pin"
+            default 20
+
+    endmenu
+
+    menu "Wifi"
+        choice WIFI_SECURITY
+            prompt "Wifi security protocol"
+
+            config WIFI_SECURITY_WPA2
+                bool "WPA2"
+
+            config WIFI_SECURITY_WPA3
+                bool "WPA3"
+
+        endchoice
+
+        config WIFI_SSID
+            string "WiFi SSID"
+            default ""
+            help
+                WiFi network name
+
+        config WIFI_PASSWORD
+            string "WiFi Password"
+            default ""
+            help
+                WiFi network password
+
+        config WIFI_HOSTNAME
+            string "Hostname"
+            default "dimmer"
+            help
+                Set device hostname that will appear in router's DHCP list
+
+    endmenu
+
+    menu "Misc"
+        config NETWORK_PERIOD_THRESHOLD_US
+            int "Network period threshold (microseconds)"
+            default 5000
+
+    endmenu
+
+endmenu
