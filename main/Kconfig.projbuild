@@ -59,6 +59,10 @@ menu "Dimmer"
             int "Network period threshold (microseconds)"
             default 5000
 
+        config WEBSERVER_PORT
+            int "Webserver port"
+            default 80
+
     endmenu
 
 endmenu

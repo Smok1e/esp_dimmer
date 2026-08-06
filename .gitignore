@@ -3,6 +3,6 @@ cmake-build-debug/
 .idea
 build
 managed_components
-sdkconfig.old
 dependencies.lock
+sdkconfig.old
 sdkconfig

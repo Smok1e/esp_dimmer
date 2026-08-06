@@ -164,6 +164,8 @@ void Main::run()
 		static_cast<gpio_num_t>(CONFIG_GPIO_NUM_KNOB_BUTTON)
 	);
 	
+	m_webserver.init(this);
+	
 	while (true)
 	{
 		RotaryEncoder::Event event;

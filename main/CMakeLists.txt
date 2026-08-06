@@ -3,6 +3,7 @@ idf_component_register(
 		"src/main.cpp"
 		"src/dimmer.cpp"
 		"src/rotary_encoder.cpp"
+		"src/webserver.cpp"
 	
 	INCLUDE_DIRS
 		"include"
@@ -17,3 +18,5 @@ idf_component_register(
 		"app_update"
 		
 )
+
+target_compile_options(${COMPONENT_LIB} PRIVATE -Wno-parentheses)

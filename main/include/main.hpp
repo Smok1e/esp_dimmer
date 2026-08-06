@@ -7,6 +7,7 @@
 
 #include <rotary_encoder.hpp>
 #include <dimmer.hpp>
+#include <webserver.hpp>
 
 //========================================
 
@@ -26,6 +27,7 @@ public:
 private:
 	Dimmer m_dimmer;
 	RotaryEncoder m_encoder;
+	Webserver m_webserver;
 	
 	float m_light_brightness = 0.f;
 	bool m_light_active = true;
