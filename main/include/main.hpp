@@ -7,7 +7,10 @@
 
 #include <rotary_encoder.hpp>
 #include <dimmer.hpp>
-#include <webserver.hpp>
+
+#include <anus/wifi.hpp>
+#include <anus/discovery.hpp>
+#include <anus/http_interface.hpp>
 
 //========================================
 
@@ -27,17 +30,13 @@ public:
 private:
 	Dimmer m_dimmer;
 	RotaryEncoder m_encoder;
-	Webserver m_webserver;
+	
+	anus::WiFi m_wifi;
+	anus::Discovery m_discovery;
+	anus::HttpInterface m_http_interface;
 	
 	float m_light_brightness = 0.f;
 	bool m_light_active = true;
-	
-	static void WifiEventHandler(void* arg, esp_event_base_t event_base, int32_t event_id, void* event_data);
-	void onWifiEvent(int32_t event_id, void* event_data);
-	void onIpEvent(int32_t event_id, void* event_data);
-
-	void initNVS();
-	void initWifi();
 	
 };
 

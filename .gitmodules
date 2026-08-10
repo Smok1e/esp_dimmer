@@ -1,0 +1,3 @@
+[submodule "components/anus"]
+	path = components/anus
+	url = git@github.com:Smok1e/esp_anus.git
