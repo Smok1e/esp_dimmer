@@ -22,46 +22,10 @@ menu "Dimmer"
 
     endmenu
 
-    menu "Wifi"
-        choice WIFI_SECURITY
-            prompt "Wifi security protocol"
-
-            config WIFI_SECURITY_WPA2
-                bool "WPA2"
-
-            config WIFI_SECURITY_WPA3
-                bool "WPA3"
-
-        endchoice
-
-        config WIFI_SSID
-            string "WiFi SSID"
-            default ""
-            help
-                WiFi network name
-
-        config WIFI_PASSWORD
-            string "WiFi Password"
-            default ""
-            help
-                WiFi network password
-
-        config WIFI_HOSTNAME
-            string "Hostname"
-            default "dimmer"
-            help
-                Set device hostname that will appear in router's DHCP list
-
-    endmenu
-
     menu "Misc"
         config NETWORK_PERIOD_THRESHOLD_US
             int "Network period threshold (microseconds)"
             default 5000
-
-        config WEBSERVER_PORT
-            int "Webserver port"
-            default 80
 
     endmenu
 

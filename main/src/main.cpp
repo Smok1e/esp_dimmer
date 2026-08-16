@@ -48,17 +48,27 @@ void Main::run()
 	m_discovery.init();
 	m_http_interface.init();
 	
-	m_http_interface.addProperty(new Slider("brightness"))->onValueUpdated(
+	m_http_interface.addProperty(new Slider("brightness", "light brightness"))->onValueUpdated(
 		[&](Property* property) -> void {
 			setLightBrightness(reinterpret_cast<Slider*>(property)->getValue());
 		}
 	);
 	
-	m_http_interface.addProperty(new Switch("active"))->onValueUpdated(
+	m_http_interface.addProperty(new Switch("active", "light power"))->onValueUpdated(
 		[&](Property* property) -> void {
 			setLightActive(reinterpret_cast<Switch*>(property)->getValue());
 		}
 	);
+	
+	m_http_interface.onUpdateProgress([&](float progress) -> void {
+		setLightActive(true);
+		
+		if (progress > .8f)
+			setLightBrightness(1.f);
+		
+		else
+			setLightBrightness(std::pow(1.f - progress, 3));
+	});
 	
 	m_dimmer.init(
 		static_cast<gpio_num_t>(CONFIG_GPIO_NUM_ZERO_CROSS_DETECT),
