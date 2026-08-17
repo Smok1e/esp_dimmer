@@ -48,13 +48,13 @@ void Main::run()
 	m_discovery.init();
 	m_http_interface.init();
 	
-	m_http_interface.addProperty(new Slider("brightness", "light brightness"))->onValueUpdated(
+	m_http_interface.addProperty(new Slider("Brightness", "Light brightness"))->onValueUpdated(
 		[&](Property* property) -> void {
 			setLightBrightness(reinterpret_cast<Slider*>(property)->getValue());
 		}
 	);
 	
-	m_http_interface.addProperty(new Switch("active", "light power"))->onValueUpdated(
+	m_http_interface.addProperty(new Switch("Active", "Light power"))->onValueUpdated(
 		[&](Property* property) -> void {
 			setLightActive(reinterpret_cast<Switch*>(property)->getValue());
 		}
